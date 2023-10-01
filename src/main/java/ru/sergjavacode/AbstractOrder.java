@@ -1,7 +1,4 @@
 package ru.sergjavacode;
-
-import ru.sergjavacode.product.AbstractProduct;
-
 public class AbstractOrder {
     private PriceAndAmountProduct productPAA;
     private int amountOrder;
