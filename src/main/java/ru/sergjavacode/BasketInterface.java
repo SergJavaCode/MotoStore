@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface BasketInterface {
     public boolean addToBasket(AbstractOrder order); //добавить заказ в корзину
-    public AbstractOrder getOrder(int index);
+    public AbstractOrder getOrder(int index) throws Exception;
     public List<AbstractOrder> getbasketOrdersFulfilled();
 
     public boolean delToBasket(AbstractOrder order); //удалить заказ из корзины

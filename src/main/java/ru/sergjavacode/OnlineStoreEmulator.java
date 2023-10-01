@@ -47,18 +47,6 @@ public class OnlineStoreEmulator {
                     showMenuRoot();
                     break;
                 case 2:
-                    /*System.out.print("\nВвведите номер товара: ");
-                    nextLine = scanner.nextLine();
-                    var numberProduct= validationIntScaner(nextLine);
-                    System.out.print("\nВвведите требуемое количество: ");
-                    nextLine = scanner.nextLine();
-                    var amountProduct= validationIntScaner(nextLine);
-                    AbstractOrder order = new Order(motoStore.getPriceAndAmountProduct(numberProduct-1),amountProduct);
-                    if (basket.addToBasket(order)){
-                        System.out.format("\nТовар %s %s в количестве %d шт. добавлен в корзину.\n", order.getProductPAA().getProduct().getBrand(),order.getProductPAA().getProduct().getNameProduct(), amountProduct);
-                    } else {
-                        System.out.println("Ошибка добавления товара в корзину.\n");
-                    }*/
                     addToBasket();
                     showMenuRoot();
                     break;
@@ -134,10 +122,15 @@ public class OnlineStoreEmulator {
                     System.out.print("\nВвведите номер удаляемой позиции в корзине: ");
                     nextLine = scanner.nextLine();
                     commandNumber = validationIntScaner(nextLine);
-                    if (basket.delToBasket(basket.getOrder(commandNumber))) {
-                        System.out.println("\nТовар успешно удален из корзины");
-                    } else {
+                    try {
+                        if (basket.delToBasket(basket.getOrder(commandNumber))) {
+                            System.out.println("\nТовар успешно удален из корзины");
+                        } else {
+                            System.out.println("Ошибка удаления товара из корзины.\n");
+                        }
+                    } catch (Exception e) {
                         System.out.println("Ошибка удаления товара из корзины.\n");
+                        break;
                     }
                     showMenuBasket();
                     break;

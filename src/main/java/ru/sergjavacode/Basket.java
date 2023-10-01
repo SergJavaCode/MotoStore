@@ -38,8 +38,10 @@ public class Basket implements BasketInterface {
     }
 
     @Override
-    public AbstractOrder getOrder(int index) {
-        return basketOrders.get(index);
+    public AbstractOrder getOrder(int index) throws Exception{
+        if (index<=basketOrders.size()) {
+            return basketOrders.get(index - 1);
+        } else {throw new Exception("Не существует такой позиции!");}
     }
 
     @Override
