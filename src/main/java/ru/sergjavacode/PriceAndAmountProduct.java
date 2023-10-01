@@ -2,7 +2,7 @@ package ru.sergjavacode;
 
 import ru.sergjavacode.product.AbstractProduct;
 
-public class PriceAndAmountProduct implements Comparable {
+public class PriceAndAmountProduct implements PriceAndAmountProductInterface, Comparable {
     public PriceAndAmountProduct(AbstractProduct product, int amount, int price) {
         this.product = product;
         this.price = price;
@@ -18,17 +18,34 @@ public class PriceAndAmountProduct implements Comparable {
         this.purchased += purchased;
     }
 
+    @Override
     public int getPurchased() {
         return purchased;
     }
 
-
+    @Override
     public void setAmount(int amount) {
         this.amount = amount;
     }
 
+    @Override
     public AbstractProduct getProduct() {
         return this.product;
+    }
+
+    @Override
+    public int getAmount() {
+        return amount;
+    }
+
+    @Override
+    public int getPrice() {
+        return price;
+    }
+
+    @Override
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     @Override
@@ -36,20 +53,6 @@ public class PriceAndAmountProduct implements Comparable {
         return "Товар: " + product.getBrand() + " " + product.getNameProduct() +
                 ", цена: " + price +
                 ", доступное количество: " + amount;
-    }
-
-
-    public int getAmount() {
-        return amount;
-    }
-
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
     }
 
     @Override

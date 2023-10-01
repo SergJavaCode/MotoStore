@@ -3,7 +3,10 @@ package ru.sergjavacode.product;
 public class ProductWheels extends AbstractProduct {
     private int radius;
     private int width;
-    private ProductWheels(){}// запрещаем пустойц контсруктор
+
+    private ProductWheels() {
+    }// запрещаем пустойц контсруктор
+
     public ProductWheels(String brand, String nameProduct, int radius, int width) {
         this.setBrand(brand);
         this.setNameProduct(nameProduct);

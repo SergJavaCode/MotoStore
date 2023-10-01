@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MotoStore implements Store {
-    private List<PriceAndAmountProduct> motoStore = new ArrayList<>();
+    private List<PriceAndAmountProductInterface> motoStore = new ArrayList<>();
 
     @Override
     public void addToStore(AbstractProduct product, int amountProduct, int priceProduct) {
@@ -19,36 +19,36 @@ public class MotoStore implements Store {
     }
 
     @Override
-    public void delFromStore(PriceAndAmountProduct priceAndAmountProduct) {
+    public void delFromStore(PriceAndAmountProductInterface priceAndAmountProduct) {
         motoStore.remove(priceAndAmountProduct);
     }
 
     @Override
-    public void setPriceOfProduct(PriceAndAmountProduct priceAndAmountProduct, int priceOfProduct) {
+    public void setPriceOfProduct(PriceAndAmountProductInterface priceAndAmountProduct, int priceOfProduct) {
         int i = motoStore.indexOf(priceAndAmountProduct);
         motoStore.get(i).setPrice(priceOfProduct);
     }
 
     @Override
-    public int getAmountOfProduct(PriceAndAmountProduct priceAndAmountProduct) {
+    public int getAmountOfProduct(PriceAndAmountProductInterface priceAndAmountProduct) {
         int i = motoStore.indexOf(priceAndAmountProduct);
         return motoStore.get(i).getAmount();
     }
 
     @Override
-    public int getPriceOfProduct(PriceAndAmountProduct priceAndAmountProduct) {
+    public int getPriceOfProduct(PriceAndAmountProductInterface priceAndAmountProduct) {
         int i = motoStore.indexOf(priceAndAmountProduct);
         return motoStore.get(i).getPrice();
     }
 
     @Override
-    public void setAmountOfProduct(PriceAndAmountProduct priceAndAmountProduct, int amountOfProduct) {
+    public void setAmountOfProduct(PriceAndAmountProductInterface priceAndAmountProduct, int amountOfProduct) {
         int i = motoStore.indexOf(priceAndAmountProduct);
         motoStore.get(i).setAmount(amountOfProduct);
     }
 
     @Override
-    public PriceAndAmountProduct getPriceAndAmountProduct(int index) {
+    public PriceAndAmountProductInterface getPriceAndAmountProduct(int index) {
         return motoStore.get(index);
     }
 
@@ -61,7 +61,7 @@ public class MotoStore implements Store {
     }
 
     @Override
-    public List<PriceAndAmountProduct> getListPAAProduct() {
+    public List<PriceAndAmountProductInterface> getListPAAProduct() {
         return motoStore;
     }
 
@@ -72,7 +72,7 @@ public class MotoStore implements Store {
     }
 
     public void filterByBrand(String brand) {
-        List<PriceAndAmountProduct> motoStoreFiltered = new ArrayList<>(motoStore.stream().filter(o -> brand.toLowerCase().equals(o.getProduct().getBrand().toLowerCase())).collect(Collectors.toList()));
+        List<PriceAndAmountProductInterface> motoStoreFiltered = new ArrayList<>(motoStore.stream().filter(o -> brand.toLowerCase().equals(o.getProduct().getBrand().toLowerCase())).collect(Collectors.toList()));
         if (motoStoreFiltered.isEmpty()) {
             System.out.println("Не найдено подходящих товаров!");
         } else {
@@ -90,7 +90,7 @@ public class MotoStore implements Store {
     }
 
     public void filterByKeyWord(String key) {
-        List<PriceAndAmountProduct> motoStoreFiltered = new ArrayList<>(motoStore.stream().filter(o -> o.getProduct().getNameProduct().toLowerCase().contains(key.toLowerCase()) || o.getProduct().getBrand().toLowerCase().contains(key.toLowerCase())).collect(Collectors.toList()));
+        List<PriceAndAmountProductInterface> motoStoreFiltered = new ArrayList<>(motoStore.stream().filter(o -> o.getProduct().getNameProduct().toLowerCase().contains(key.toLowerCase()) || o.getProduct().getBrand().toLowerCase().contains(key.toLowerCase())).collect(Collectors.toList()));
         if (motoStoreFiltered.isEmpty()) {
             System.out.println("Не найдено подходящих товаров!");
         } else {

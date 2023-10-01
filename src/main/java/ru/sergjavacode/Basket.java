@@ -38,10 +38,12 @@ public class Basket implements BasketInterface {
     }
 
     @Override
-    public AbstractOrder getOrder(int index) throws Exception{
-        if (index<=basketOrders.size()) {
+    public AbstractOrder getOrder(int index) throws Exception {
+        if (index <= basketOrders.size()) {
             return basketOrders.get(index - 1);
-        } else {throw new Exception("Не существует такой позиции!");}
+        } else {
+            throw new Exception("Не существует такой позиции!");
+        }
     }
 
     @Override
@@ -81,7 +83,7 @@ public class Basket implements BasketInterface {
 
     @Override
     public boolean repeatSendAnOrder(int index) {
-        return this.addToBasket(basketOrdersFulfilled.get(index));
+        return this.addToBasket(basketOrdersFulfilled.get(index - 1));
     }
 
     @Override
@@ -91,10 +93,10 @@ public class Basket implements BasketInterface {
         } else {
             final int[] count = {1};
             System.out.println("В корзине:\n");
-            basketOrders.stream().forEach(o->{
+            basketOrders.stream().forEach(o -> {
                 System.out.print(count[0] + ". ");
                 System.out.println(o.toString());
-                count[0] +=1;
+                count[0] += 1;
             });
             System.out.println("Стоимость товаров в корзине: " + this.getCostBasket() + " руб.");
         }

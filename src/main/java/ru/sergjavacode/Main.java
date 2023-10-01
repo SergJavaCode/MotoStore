@@ -33,7 +33,7 @@ public class Main {
         System.out.println("___________________________");
         basket.sendAnOrder();
         motoStore.sortedByRating();*/
-        OnlineStoreEmulator onlineStoreEmulator=new OnlineStoreEmulator();
+        OnlineStoreEmulator onlineStoreEmulator = new OnlineStoreEmulator();
         onlineStoreEmulator.start();
 
     }

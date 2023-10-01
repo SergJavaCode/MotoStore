@@ -20,10 +20,12 @@ public class AbstractProduct {
     public void setNameProduct(String nameProduct) {
         this.nameProduct = nameProduct;
     }
+
     @Override
     public String toString() {
-        return "Товар: " + brand +  " " + nameProduct;
+        return "Товар: " + brand + " " + nameProduct;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

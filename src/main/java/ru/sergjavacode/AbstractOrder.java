@@ -1,9 +1,10 @@
 package ru.sergjavacode;
+
 public class AbstractOrder {
-    private PriceAndAmountProduct productPAA;
+    private PriceAndAmountProductInterface productPAA;
     private int amountOrder;
 
-    public void setProduct(PriceAndAmountProduct productPAA) {
+    public void setProduct(PriceAndAmountProductInterface productPAA) {
         this.productPAA = productPAA;
     }
 
@@ -11,7 +12,7 @@ public class AbstractOrder {
         this.amountOrder = amountOrder;
     }
 
-    public PriceAndAmountProduct getProductPAA() {
+    public PriceAndAmountProductInterface getProductPAA() {
         return productPAA;
     }
 
@@ -21,17 +22,17 @@ public class AbstractOrder {
 
 
     public int getCostOrder() {
-        return amountOrder* productPAA.getPrice();
+        return amountOrder * productPAA.getPrice();
     }
 
     @Override
     public String toString() {
         return "Товар: " +
                 productPAA.getProduct().getBrand() +
-                " "+
-                productPAA.getProduct().getNameProduct()+
-                ",  в количестве " + amountOrder +" шт. "+
-                "стоимостью "+
-                getCostOrder() +" руб.";
+                " " +
+                productPAA.getProduct().getNameProduct() +
+                ",  в количестве " + amountOrder + " шт. " +
+                "стоимостью " +
+                getCostOrder() + " руб.";
     }
 }
